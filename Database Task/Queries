@@ -1,0 +1,8 @@
+- Highest calorie drink
+select Beverage_category,Calories from drinkMenu$ where Calories=( select max(Calories) from drinkMenu$);
+
+- AVG calorie amount for each drink 
+select Beverage_category,round(AVG(Calories),2) from drinkMenu$ group by Beverage_category;
+
+-Below avg calorie drink
+select  TOP 1 Beverage_category,round(AVG(Calories),2)as avgcal from drinkMenu$  group by Beverage_category ORDER BY avgcal ASC;
